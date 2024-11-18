@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 18px;
+      text-align: left;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+    .hidden {
+      display: none;
+    }
+    .filter-container {
+      margin-bottom: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Panel de Administración</h1>
+  
+  <div class="filter-container">
+    <button id="btn-juegos">Juegos</button>
+    <button id="btn-actividades">Actividades</button>
+    <label for="user-filter">Filtrar por ID de Usuario:</label>
+    <input type="number" id="user-filter" placeholder="Ejemplo: 1" />
+    <button id="apply-filter">Aplicar Filtro</button>
+  </div>
+  
+  <table id="table-juegos" class="hidden">
+    <thead>
+      <tr>
+        <th>ID Juego</th>
+        <th>ID Usuario</th>
+        <th>Nombre del Juego</th>
+        <th>Puntaje</th>
+        <th>Puntaje Máximo</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  
+  <table id="table-actividades" class="hidden">
+    <thead>
+      <tr>
+        <th>ID Actividad</th>
+        <th>ID Usuario</th>
+        <th>Nombre de Actividad</th>
+        <th>Puntaje</th>
+        <th>Puntaje Máximo</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const adminEndpoint = "http://localhost:5000/api/auth/admin";
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        alert("Token no disponible. Por favor, inicia sesión.");
+        document.body.innerHTML = "<h1>No eres administrador</h1>";
+        return;
+      }
+
+      fetch(adminEndpoint, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then(response => {
+          if (response.status === 200) {
+            return response.json();
+          } else if (response.status === 403) {
+            throw new Error("No eres administrador");
+          } else {
+            throw new Error("Error inesperado");
+          }
+        })
+        .then(data => {
+          console.log(data.message);
+        })
+        .catch(error => {
+          console.error("Error de autorización:", error.message);
+          document.body.innerHTML = "<h1>No eres administrador</h1>";
+        });
+    });
+
+    const btnJuegos = document.getElementById("btn-juegos");
+    const btnActividades = document.getElementById("btn-actividades");
+    const userFilter = document.getElementById("user-filter");
+    const applyFilter = document.getElementById("apply-filter");
+
+    const tableJuegos = document.getElementById("table-juegos");
+    const tableActividades = document.getElementById("table-actividades");
+
+    btnJuegos.addEventListener("click", () => {
+      tableJuegos.classList.remove("hidden");
+      tableActividades.classList.add("hidden");
+      fetchAndRenderData("http://localhost:5000/api/games", tableJuegos);
+    });
+
+    btnActividades.addEventListener("click", () => {
+      tableActividades.classList.remove("hidden");
+      tableJuegos.classList.add("hidden");
+      fetchAndRenderData("http://localhost:5000/api/activities", tableActividades);
+    });
+
+    applyFilter.addEventListener("click", () => {
+      const userId = userFilter.value.trim();
+      const activeTable = !tableJuegos.classList.contains("hidden")
+        ? tableJuegos
+        : tableActividades;
+      const apiUrl = activeTable === tableJuegos 
+        ? "http://localhost:5000/api/games" 
+        : "http://localhost:5000/api/activities";
+      fetchAndRenderData(apiUrl, activeTable, userId);
+    });
+
+    function fetchAndRenderData(apiUrl, table, userId = "") {
+      fetch(apiUrl, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Error en la solicitud: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          const tableBody = table.querySelector("tbody");
+          tableBody.innerHTML = "";
+
+          const filteredData = userId
+            ? data.filter(item => item.id_usuario == userId)
+            : data;
+
+          filteredData.forEach(item => {
+            const row = document.createElement("tr");
+
+            if (table === tableJuegos) {
+              row.innerHTML = `
+                <td>${item.id_juego}</td>
+                <td>${item.id_usuario}</td>
+                <td>${item.nombre_juego}</td>
+                <td>${item.puntaje}</td>
+                <td>${item.puntaje_maximo}</td>
+              `;
+            } else {
+              row.innerHTML = `
+                <td>${item.id_actividad}</td>
+                <td>${item.id_usuario}</td>
+                <td>${item.nombre_actividad}</td>
+                <td>${item.puntaje}</td>
+                <td>${item.puntaje_maximo}</td>
+              `;
+            }
+
+            tableBody.appendChild(row);
+          });
+        })
+        .catch(error => {
+          console.error("Error al obtener los datos de la API:", error);
+          alert("Hubo un problema al cargar los datos.");
+        });
+    }
+  </script>
+</body>
+</html>

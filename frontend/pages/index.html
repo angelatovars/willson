@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Menú Principal - Proyecto JuegoPython</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="../assets/icons/favicon.png" type="image/png">
+</head>
+<body>
+
+
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <img src="../assets/icons/logo.png" alt="Logo" class="logo">
+        </div>
+        <ul class="navbar-menu">
+          <li><a href="admin.html">Dashboard</a></li>
+            <li><a href="profile.html">Perfil</a></li>
+            <li><a href="ranking.html">Ranking</a></li>
+            <li><a href="login.html">Cerrar Sesión</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sección de Bienvenida -->
+    <header class="welcome-section">
+        <div class="welcome-text">
+            <h1>Bienvenido a MenteAprende</h1>
+            <p>Mejora tus habilidades cognitivas con juegos y actividades diseñadas para ti.</p>
+            <a href="#menu-section" class="btn-main">Explorar Juegos y Actividades</a>
+        </div>
+        <div class="welcome-image">
+            <img src="../assets/images/creacion.png" alt="Bienvenido">
+        </div>
+    </header>
+
+    <!-- Sección de Juegos y Actividades -->
+    <section id="menu-section" class="menu-container">
+        <h2 class="section-title">Selecciona un Juego</h2>
+        <div class="grid-container">
+            <div class="card game-card" onclick="location.href='games/memoria.html'">
+                <img src="../assets/images/memoria.webp" alt="Memoria Visual">
+                <h3>Memoria Visual</h3>
+                <p>Encuentra las parejas de tarjetas iguales.</p>
+            </div>
+            <div class="card game-card" onclick="location.href='games/laberinto.html'">
+                <img src="../assets/images/laberinto.webp" alt="Laberinto">
+                <h3>Laberinto</h3>
+                <p>Encuentra la salida en el menor tiempo posible.</p>
+            </div>
+            <div class="card game-card" onclick="location.href='games/sopa_letras.html'">
+                <img src="../assets/images/sopa_letras.webp" alt="Sopa de Letras">
+                <h3>Sopa de Letras</h3>
+                <p>Encuentra las palabras escondidas en la sopa.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Selecciona una Actividad</h2>
+        <div class="grid-container">
+            <div class="card activity-card" onclick="location.href='activities/fill_spaces.html'">
+                <img src="../assets/images/fill_spaces.webp" alt="Llenar los Espacios">
+                <h3>Llenar los Espacios</h3>
+                <p>Completa las oraciones con las palabras correctas.</p>
+            </div>
+            <div class="card activity-card" onclick="location.href='activities/words_game.html'">
+                <img src="../assets/images/words_game.webp" alt="Juegos de Palabras">
+                <h3>Juegos de Palabras</h3>
+                <p>Resuelve los anagramas y acertijos.</p>
+            </div>
+            <div class="card activity-card" onclick="location.href='activities/timed_reading.html'">
+                <img src="../assets/images/timed_reading.webp" alt="Lectura con Cronómetro">
+                <h3>Lectura con Cronómetro</h3>
+                <p>Lee y mejora tu velocidad de lectura.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+        <p>&copy; 2024 MenteAprende.Todos los derechos reservados.</p>
+        <ul class="footer-links">
+            <li><a href="profile.html">Perfil</a></li>
+            <li><a href="ranking.html">Ranking</a></li>
+        </ul>
+    </footer>
+    
+    <script src="../js/main.js"></script>
+</body>
+</html>

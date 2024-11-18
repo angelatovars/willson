@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fill Spaces - Juego</title>
+    <link rel="stylesheet" href="../../css/fill_spaces.css">
+</head>
+<body>
+
+    <div id="gameContainer">
+        <div id="puntaje">🏆 Puntaje: 0</div>
+        <div id="oracion"></div>
+        <div id="palabras"></div>
+        <button onclick="volverMenu()">Volver al Menú</button>
+    </div>
+
+    <!-- Modal para las instrucciones -->
+    <div id="instruccionesModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Instrucciones</h2>
+            <p>Completa la oración seleccionando la palabra correcta. Obtendrás puntaje por cada respuesta correcta, pero perderás puntos por errores. ¡Buena suerte!</p>
+            <button id="empezarJuego">Empezar Juego</button>
+        </div>
+    </div>
+
+    <script src="../../js/fill_spaces.js"></script>
+
+</body>
+</html>

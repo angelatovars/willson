@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timed Reading</title>
+    <link rel="stylesheet" href="../../css/timed_reading.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Timed Reading</h1>
+        
+        <div class="game-info">
+            <span id="vidas">❤️❤️❤️</span>
+            <span id="puntaje">🏆 0</span>
+            <span id="tiempo">⏱ 00:00</span>
+        </div>
+
+        <div class="game-container">
+            <p id="textoLectura" class="texto-lectura"></p>
+            <p id="vozDetectada" class="voz-detectada"></p>
+            
+            <div class="controles">
+                <button id="startButton" onclick="iniciarCronometro()" class="btn-control">
+                    Iniciar Lectura
+                </button>
+                <button id="btnTerminado" style="display: none;" onclick="verificarFrase()" class="btn-control">
+                    He terminado de leer
+                </button>
+                <button onclick="activarReconocimientoVoz()" class="btn-control">
+                    Activar Micrófono 🎤
+                </button>
+                <button onclick="volverAlMenu()" class="btn-control">
+                    Volver al Menú
+                </button>
+            </div>
+        </div>
+
+        <div id="mensaje" style="display: none;"></div>
+    </div>
+
+    <script src="../../js/timed_reading.js"></script>
+</body>
+</html>

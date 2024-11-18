@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sopa de Letras</title>
+    <link rel="stylesheet" href="../../css/sopa_letras.css">
+</head>
+<body>
+    <h1>Sopa de Letras</h1>
+    
+    <!-- Pantalla inicial -->
+    <div id="pantallaInicial" class="pantalla-inicial">
+        <button id="botonEmpezar" class="boton-empezar">¡Empezar Juego!</button>
+    </div>
+
+    <!-- Selección de niveles -->
+    <div id="seleccionNivel" class="seleccion-nivel oculto">
+        <h2>Selecciona un Nivel</h2>
+        <div class="niveles-container">
+            <div class="nivel-card" onclick="seleccionarNivel('facil')">
+                <h3>🔹 Nivel Fácil</h3>
+                <p>Animales</p>
+            </div>
+            <div class="nivel-card" onclick="seleccionarNivel('intermedio')">
+                <h3>🔹 Nivel Intermedio</h3>
+                <p>Objetos</p>
+            </div>
+            <div class="nivel-card" onclick="seleccionarNivel('dificil')">
+                <h3>🔹 Nivel Difícil</h3>
+                <p>Colores</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenido del juego -->
+    <div id="contenidoJuego" class="oculto">
+        <div class="game-container">
+            <div id="sopaLetras" class="sopa-letras"></div>
+            <div class="word-list">
+                <h2>Palabras a Buscar 📝</h2>
+                <ul id="palabras"></ul>
+            </div>
+        </div>
+
+        <div class="info-container">
+            <p id="puntaje">🏆 Puntaje: 0</p>
+            <button onclick="volverMenu()">Volver al Menú</button>
+        </div>
+    </div>
+
+    <script src="../../js/sopa_letras.js"></script>
+</body>
+</html>

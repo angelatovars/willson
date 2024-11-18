@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking</title>
+    <link rel="stylesheet" href="../css/ranking.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ranking de Jugadores</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Puesto</th>
+                    <th>Nombre</th>
+                    <th>Puntaje</th>
+                </tr>
+            </thead>
+            <tbody id="rankingBody">
+                <p>text</p>
+                {% for (post, id) in enumerate(object_list) %}
+                <!-- Aquí se agregan las filas del ranking -->
+                    <tr>
+                        <td>{{id}}</td>
+                        <td>{{post.nombre}}</td>
+                        <td>{{post.correo}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button class="btn" onclick="volverAlMenu()">Volver al Menú</button>
+    </div>
+
+    <script src="../js/ranking.js"></script>
+</body>
+</html>

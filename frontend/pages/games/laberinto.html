@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Laberinto</title>
+    <link rel="stylesheet" href="../../css/laberinto.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Laberinto</h1>
+        <canvas id="laberintoCanvas"></canvas>
+
+        <div class="game-info">
+            <button class="btn" onclick="volverAlMenu()">Volver al Menú</button>
+            <p>Nivel: <span id="nivel">1</span></p>
+            <p>Tiempo: <span id="tiempo">00:00</span></p>
+            <p>Puntaje: <span id="puntaje">0 🏆</span></p>
+        </div>
+    </div>
+
+    <!-- Modal de Instrucciones -->
+    <div id="modalInstrucciones" class="modal">
+        <div class="modal-content">
+            <span id="cerrarModal" class="close">&times;</span>
+            <h2>Instrucciones del Juego de Laberinto</h2>
+            <p>El objetivo del juego es llegar a la salida del laberinto en el menor tiempo posible. Puedes moverte con las flechas del teclado.</p>
+            <p>Tienes tres niveles de dificultad:</p>
+            <ul>
+                <li><strong>Fácil:</strong> Laberinto de 7x7, más tiempo.</li>
+                <li><strong>Intermedio:</strong> Laberinto de 15x15, tiempo moderado.</li>
+                <li><strong>Difícil:</strong> Laberinto de 20x20, menos tiempo.</li>
+            </ul>
+            <button id="empezarJuego" class="btn">¡Empezar Juego!</button>
+        </div>
+    </div>
+
+    <script src="../../js/laberinto.js"></script>
+</body>
+</html>

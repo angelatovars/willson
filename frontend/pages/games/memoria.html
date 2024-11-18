@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Juego de Memoria Visual</title>
+    <link rel="stylesheet" href="../../css/memoria.css">
+</head>
+<body>
+    <h1>Juego de Memoria Visual</h1>
+    <button onclick="volverMenu()">Volver al menú</button>
+    <div class="game-board" id="gameBoard"></div>
+
+    <div class="game-container">
+        <div class="score-container">
+            <span id="scoreIcon">🏆</span>
+            <span id="score">0</span>
+        </div>
+        <div id="gameBoard"></div>
+        <button id="nextLevelBtn" class="hidden" onclick="goToNextLevel()">Siguiente Nivel</button>
+        <button onclick="volverMenu()">Volver al menú</button>
+    </div>
+    
+   <!-- Instrucciones Modal -->
+    <div id="instruccionesModal" class="modal">
+        <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Instrucciones del Juego de Memoria</h2>
+        <p>El objetivo del juego es emparejar todas las cartas. Cada vez que emparejes dos cartas correctamente, obtendrás puntos. Si cometes un error, se te descontarán puntos.</p>
+        <p>Tienes tres niveles de dificultad:</p>
+        <ul>
+            <li><strong>Fácil:</strong> Menos cartas y menor penalización por errores.</li>
+            <li><strong>Intermedio:</strong> Mayor cantidad de cartas y una penalización media por errores.</li>
+            <li><strong>Difícil:</strong> Aumenta el número de cartas y la penalización.</li>
+        </ul>
+        <button id="startGameBtn">¡Empezar Juego!</button>
+        </div>
+    </div>
+    
+    <script src="../../js/memoria.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,207 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #90EE90;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-container {
+    background-color: rgba(66, 243, 7, 0.9); /* Fondo blanco semi-transparente */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 20px 0;
+}
+
+h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.game-info {
+    width: 90%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#vidas {
+    color: #ff4444;
+    letter-spacing: 2px;
+    font-size: 28px;
+}
+
+#puntaje, #tiempo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.game-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 20px 0;
+    width: 90%;
+    max-width: 1000px;
+}
+
+.texto-lectura {
+    font-size: 24px;
+    line-height: 1.8;
+    margin: 25px 0;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.voz-detectada {
+    font-size: 20px;
+    color: #666;
+    margin: 15px 0;
+    min-height: 30px;
+}
+
+.controles {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 25px 0;
+}
+
+.btn-control {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #007bff;
+    color: white;
+    min-width: 200px;
+}
+
+.btn-control:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn-control:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Mensajes de feedback */
+.mensaje-exito, .mensaje-error, .mensaje-gameover, .mensaje-victoria {
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px 0;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.mensaje-exito {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.mensaje-error {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+.mensaje-gameover {
+    background-color: #f8d7da;
+    border: 2px solid #dc3545;
+    color: #721c24;
+}
+
+.mensaje-victoria {
+    background-color: #fff3cd;
+    border: 2px solid #ffc107;
+    color: #856404;
+}
+
+/* Botones de acción */
+.btn-reintentar, .btn-siguiente, .btn-reiniciar, .btn-menu {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    margin: 5px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.btn-reintentar { background-color: #dc3545; }
+.btn-siguiente { background-color: #28a745; }
+.btn-reiniciar { background-color: #17a2b8; }
+.btn-menu { background-color: #6c757d; }
+
+.btn-reintentar:hover, 
+.btn-siguiente:hover, 
+.btn-reiniciar:hover, 
+.btn-menu:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Resaltado de palabras */
+.highlight {
+    background-color: #ffd700;
+    padding: 2px 5px;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    .game-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .texto-lectura {
+        font-size: 18px;
+    }
+
+    .btn-control {
+        width: 100%;
+        margin: 5px 0;
+    }
+}

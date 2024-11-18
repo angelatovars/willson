@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil</title>
+    <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mi Perfil</h1>
+        <form id="profileForm">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" placeholder="Nombre">
+            
+            <label for="correo">Correo (no editable):</label>
+            <input type="text" id="correo" disabled placeholder="Correo">
+
+            <label for="edad">Edad (17-28):</label>
+            <input type="number" id="edad" placeholder="Edad" min="17" max="28" required>
+            
+            <label for="temaPreferido">Tema Preferido:</label>
+            <select id="temaPreferido">
+                <option value="Tecnología">Tecnología</option>
+                <option value="Deportes">Deportes</option>
+                <option value="Ciencia">Ciencia</option>
+            </select>
+            
+            <label for="nivelPreferido">Nivel Preferido:</label>
+            <select id="nivelPreferido">
+                <option value="Fácil">Fácil</option>
+                <option value="Intermedio">Intermedio</option>
+                <option value="Difícil">Difícil</option>
+            </select>
+
+            <div class="button-group">
+                <button type="submit" id="guardarCambios" class="btn">Guardar Cambios</button>
+            </div>
+        </form>
+        <button type="button" class="btn" onclick="volverMenu()">Volver al Menú</button>
+    </div>
+    
+    <script src="../js/profile.js"></script>
+</body>
+</html>

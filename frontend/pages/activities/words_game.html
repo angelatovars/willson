@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juegos de Palabras</title>
+    <link rel="stylesheet" href="../../css/words_game.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Juegos de Palabras</h1>
+
+        <div id="anagramContainer">
+            <p>Resuelve este anagrama:</p>
+            <h2 id="anagrama">PALABRA</h2>
+        </div>
+
+        <input type="text" id="respuesta" placeholder="Escribe la palabra correcta..." autofocus>
+        <button class="btn" id="validarRespuesta">Validar Respuesta</button>
+
+        <div class="game-info">
+            <p>Nivel: <span id="nivel">1</span></p>
+            <p>Puntaje: <span id="puntaje">0 🏆</span></p>
+        </div>
+
+        <button class="btn" onclick="volverAlMenu()">Volver al Menú</button>
+    </div>
+
+    <!-- Modal de Instrucciones -->
+    <div id="modalInstrucciones" class="modal">
+        <div class="modal-content">
+            <span id="cerrarModal" class="close">&times;</span>
+            <h2>Instrucciones del Juego de Palabras</h2>
+            <p>El objetivo del juego es resolver anagramas. Escribe la palabra correcta basada en las letras desordenadas.</p>
+            <p>Tienes tres niveles de dificultad:</p>
+            <ul>
+                <li><strong>Fácil:</strong> 2 puntos por respuesta correcta, -1 por error.</li>
+                <li><strong>Intermedio:</strong> 4 puntos por respuesta correcta, -2 por error.</li>
+                <li><strong>Difícil:</strong> 6 puntos por respuesta correcta, -3 por error.</li>
+            </ul>
+            <button id="empezarJuego" class="btn">¡Empezar Juego!</button>
+        </div>
+    </div>
+
+    <script src="../../js/words_game.js"></script>
+</body>
+</html>
